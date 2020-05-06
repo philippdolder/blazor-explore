@@ -1,0 +1,21 @@
+﻿<tr class="@this.GetClass()">
+    <td @onclick="@this.Toggle">@this.GetSelection()</td>
+    @foreach (Model.Cell cell in this.Value.Cells)
+    {
+        <td>@cell.Content</td>
+    }
+</tr>
+
+@code
+{
+    [Parameter]
+    public Model.Row Value { get; set; }
+
+    private string GetSelection() => this.isSelected ? "(x)" : "( )";
+
+    private bool isSelected = false;
+
+    private void Toggle() => this.isSelected = !this.isSelected;
+
+    private string GetClass() => this.isSelected ? "row-selected" : "";
+}

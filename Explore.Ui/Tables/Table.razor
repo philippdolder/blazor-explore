@@ -1,0 +1,32 @@
+﻿@page "/table"
+@inject TableService TableService
+
+<h1>Table</h1>
+
+@if (this.model == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <table class="table">
+        <tbody>
+        @foreach (Model.Row row in this.model.Rows)
+        {
+            <Row Value="@row" />
+        }      
+        </tbody>
+    </table>
+}
+
+@code
+{
+    private Model? model;
+
+    protected override async Task OnInitializedAsync()
+    {
+        this.model = await this.TableService.Load().ConfigureAwait(false);
+    }
+
+
+}
