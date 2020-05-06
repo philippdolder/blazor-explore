@@ -1,0 +1,18 @@
+﻿<td @onclick="@this.Toggle" class="@this.GetClass()">@this.GetSelection()</td>
+
+@code
+{
+    [Parameter]
+    public Model.Column Value { get; set; }
+
+    private void Toggle()
+    {
+        this.isSelected = !this.isSelected;
+    }
+
+    private string GetSelection() => this.isSelected ? "(x)" : "( )";
+
+    private bool isSelected = false;
+
+    private string GetClass() => this.isSelected ? "column-selected" : "";
+}

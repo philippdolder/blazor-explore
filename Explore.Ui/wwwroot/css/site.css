@@ -12,6 +12,10 @@ tr.row-selected {
     background-color: lightblue;
 }
 
+td.column-selected {
+    background-color: lightgreen;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;

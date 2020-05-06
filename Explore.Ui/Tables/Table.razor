@@ -11,10 +11,11 @@ else
 {
     <table class="table">
         <tbody>
+        <ColumnSelection Columns="@this.model.Columns"/>
         @foreach (Model.Row row in this.model.Rows)
         {
-            <Row Value="@row" />
-        }      
+            <Row Value="@row"/>
+        }
         </tbody>
     </table>
 }

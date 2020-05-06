@@ -1,0 +1,16 @@
+﻿<tr>
+    @if (this.Columns.Any())
+    {
+        <td></td>
+        @foreach (Model.Column column in this.Columns)
+        {
+            <Column Value="@column" />
+        }
+    }
+</tr>
+
+@code
+{
+    [Parameter]
+    public IReadOnlyList<Model.Column> Columns { get; set; } = new List<Model.Column>();
+}
