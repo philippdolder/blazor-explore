@@ -16,6 +16,10 @@ td.column-selected {
     background-color: lightgreen;
 }
 
+td.cell-selected {
+    background-color: lightsalmon;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;

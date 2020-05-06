@@ -1,0 +1,10 @@
+﻿<td class="@(this.Column.IsSelected ? "cell-selected" : "")">@this.Value.Content</td>
+
+@code
+{
+    [Parameter]
+    public Model.Cell Value { get; set; }
+
+    [Parameter]
+    public Model.Column Column { get; set; }
+}                                     

@@ -5,14 +5,16 @@
     [Parameter]
     public Model.Column Value { get; set; }
 
-    private void Toggle()
+    [Parameter]
+    public EventCallback ToggleChanged { get; set; }
+
+    private async Task Toggle()
     {
-        this.isSelected = !this.isSelected;
+        this.Value.IsSelected = !this.Value.IsSelected;
+        await this.ToggleChanged.InvokeAsync(null).ConfigureAwait(true);
     }
 
-    private string GetSelection() => this.isSelected ? "(x)" : "( )";
+    private string GetSelection() => this.Value.IsSelected ? "(x)" : "( )";
 
-    private bool isSelected = false;
-
-    private string GetClass() => this.isSelected ? "column-selected" : "";
+    private string GetClass() => this.Value.IsSelected ? "column-selected" : "";
 }

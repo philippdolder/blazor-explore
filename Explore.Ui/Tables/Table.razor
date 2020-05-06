@@ -11,10 +11,10 @@ else
 {
     <table class="table">
         <tbody>
-        <ColumnSelection Columns="@this.model.Columns"/>
+        <ColumnSelection Columns="@this.model.Columns" SelectionChanged="@this.Render"/>
         @foreach (Model.Row row in this.model.Rows)
         {
-            <Row Value="@row"/>
+            <Row Value="@row" Columns="@this.model.Columns"/>
         }
         </tbody>
     </table>
@@ -29,5 +29,5 @@ else
         this.model = await this.TableService.Load().ConfigureAwait(false);
     }
 
-
+    public Task Render() => this.InvokeAsync(this.StateHasChanged);
 }

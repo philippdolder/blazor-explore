@@ -25,12 +25,7 @@ namespace Explore.Ui.Tables
 
         public class Column
         {
-            public Column(IReadOnlyList<Cell> cells)
-            {
-                Cells = cells;
-            }
-
-            public IReadOnlyList<Cell> Cells { get; }
+            public bool IsSelected { get; set; }
         }
 
         public class Cell

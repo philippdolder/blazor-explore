@@ -4,7 +4,7 @@
         <td></td>
         @foreach (Model.Column column in this.Columns)
         {
-            <Column Value="@column" />
+            <Column Value="@column" ToggleChanged="@this.SelectionChanged"/>
         }
     }
 </tr>
@@ -13,4 +13,7 @@
 {
     [Parameter]
     public IReadOnlyList<Model.Column> Columns { get; set; } = new List<Model.Column>();
+
+    [Parameter]
+    public EventCallback SelectionChanged { get; set; }
 }
